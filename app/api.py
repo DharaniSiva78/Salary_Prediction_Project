@@ -12,7 +12,6 @@ app = Flask(__name__)
 def predict():
     data = request.json
     df = pd.DataFrame([data])
-    # Assume preprocessing is built into model pipeline
     prediction = model.predict(df)
     return jsonify({'predicted_ctc': prediction[0]})
 
