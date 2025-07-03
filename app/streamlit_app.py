@@ -3,13 +3,11 @@ import pandas as pd
 import joblib
 import os
 
-# Load the full pipeline (preprocessor + model)
 MODEL_PATH = os.path.abspath(os.path.join(os.path.dirname(__file__), '..', 'models', 'best_model.pkl'))
 model = joblib.load(MODEL_PATH)
 
 st.title("Salary Prediction App")
 
-# Collect user inputs
 input_df = pd.DataFrame([{
     "Total_Experience": st.slider("Total Experience", 0, 40, 5),
     "Total_Experience_in_field_applied": st.slider("Relevant Experience", 0, 40, 3),
@@ -39,7 +37,6 @@ input_df = pd.DataFrame([{
     "International_degree_any": st.selectbox("International Degree", ["Yes", "No"])
 }])
 
-# Predict
 if st.button("Predict Salary"):
     try:
         prediction = model.predict(input_df)
