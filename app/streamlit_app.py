@@ -1,9 +1,10 @@
 import streamlit as st
 import pandas as pd
 import joblib
-import os
 
-MODEL_PATH = os.path.abspath(os.path.join(os.path.dirname(__file__), '..', 'models', 'best_model.pkl'))
+# ✅ ONLY THIS
+MODEL_PATH = "models/best_model.pkl"
+
 model = joblib.load(MODEL_PATH)
 
 st.title("Salary Prediction App")
